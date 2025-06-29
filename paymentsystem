@@ -4,23 +4,30 @@
             <div class="row ">
                 <div class="col-lg-8">
                     <div class="row align-items-center">
-                        <div class="col-md-3">
-                            <img src="img/p1.webp" alt="">
+                        <div class="col-lg-3">
+                            <img src="img/p1.webp" alt="" class="w-100">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <h4>product title</h4>
                             <p>catogory</p>
                         </div>
-                        <div class="col-md-3">
-                            <form class="d-flex">
+                        <div class="col-lg-3">
+                            <!-- <form class="d-flex">
                                 <button type="button" class="border border-outline-success"
                                     onclick="decFunction()">-</button>
                                 <input type="text" name="quantity" id="quantity" class="form-control" value="1">
                                 <button type="button" class="border border-outline-success"
                                     onclick="incFunction()">+</button>
-                            </form>
+                            </form> -->
+
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" onclick="decFunction()">-</span>
+                                <input type="text" class="form-control" value="1" id="quantity" readonly>
+                                <span class="input-group-text" onclick="incFunction()">+</span>
+                            </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-lg-2">
                             <p> <span id="unitPrice">200</span>BDT</p>
                         </div>
                     </div>
