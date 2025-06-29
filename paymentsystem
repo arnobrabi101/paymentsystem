@@ -1,0 +1,107 @@
+---------------------------------HTML-------------------------------------------------------
+<div class="chickout py-5">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-8">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <img src="img/p1.webp" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <h4>product title</h4>
+                            <p>catogory</p>
+                        </div>
+                        <div class="col-md-3">
+                            <form class="d-flex">
+                                <button type="button" class="border border-outline-success"
+                                    onclick="decFunction()">-</button>
+                                <input type="text" name="quantity" id="quantity" class="form-control" value="1">
+                                <button type="button" class="border border-outline-success"
+                                    onclick="incFunction()">+</button>
+                            </form>
+                        </div>
+                        <div class="col-md-2">
+                            <p> <span id="unitPrice">200</span>BDT</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 border">
+                    <table class="table">
+                        <tr>
+                            <td>SubTotal</td>
+                            <td><span id="subtotal">200</span> BDT</td>
+                        </tr>
+
+                        <tr>
+                            <td>Delivary Fee</td>
+                            <td> <span id="Delivary">50</span> BDT </td>
+                        </tr>
+
+                        <tr>
+                            <td>Totl Price</td>
+                            <td><span id="Tprice"></span>BDT</td>
+                        </tr>
+                    </table>
+                    <a href="" class="btn btn-outline-success w-100 d-block"> Order Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+------------------------------------------------------JS-------------------------------------
+
+
+<script>
+        function DateT(){
+            let temp = new Date();
+        let time = temp.toLocaleTimeString();
+        let date = temp.toLocaleDateString();
+        let timeDate = document.getElementById("timeDate").innerHTML = `${time}${date}`;
+        }
+        DateT();
+
+        setInterval(DateT, 1000);
+
+
+
+
+
+        let getQuantity = parseInt(document.getElementById("quantity").value);
+        let getPrice = document.getElementById("unitPrice").innerHTML;
+        
+        // let getSubtotal1 = document.getElementById("quantity").innerHTML;
+        let getSubtotal2 = document.getElementById("subtotal").innerHTML;
+        let getDelivary = document.getElementById("Delivary").innerHTML;
+        // let getDelivary = document.getElementById("Delivary").innerHTML;
+
+
+        function incFunction() {
+            getQuantity += 1;
+            document.getElementById("quantity").value = getQuantity;
+            document.getElementById("unitPrice").innerHTML = getQuantity * getPrice;
+            document.getElementById("subtotal").innerHTML = getQuantity * getPrice;
+            document.getElementById("Tprice").innerHTML = getQuantity * getPrice + parseInt(getDelivary);
+
+
+
+        }
+
+        function decFunction() {
+            if (getQuantity > 1) {
+                getQuantity -= 1;
+                document.getElementById("quantity").value = getQuantity;
+                document.getElementById("unitPrice").innerHTML = getQuantity * getPrice;
+                document.getElementById("subtotal").innerHTML = getQuantity * getPrice;
+                document.getElementById("Tprice").innerHTML = getQuantity * getPrice + parseInt(getDelivary);
+            }
+            else{
+                alert("You should order atleast one !!! ");
+            }
+        }
+
+
+
+    </script>
